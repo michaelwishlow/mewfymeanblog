@@ -9,11 +9,11 @@
 </head>
 <body>
 
-<div class="container" ng-controller="BlogController">
+<div class="container"  ng-controller="BlogController">
 <h1>Mewfy MEAN Blog</h1>
 
-		<input class="form-control" placeholder="title" />
-		<textarea class="form-control"  placeholder="body"></textarea>
+		<input ng-model="post.title" class="form-control" placeholder="title" /><br>
+		<textarea ng-model="post.body" class="form-control"  placeholder="body"></textarea><br>
 		<button ng-click="createPost(post)"  class="btn btn-primary">Post</button>
 
 </div>

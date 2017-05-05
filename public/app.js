@@ -3,11 +3,12 @@
 				.module("mewfymeanblog", [])
 				.controller("BlogController", BlogController);
 
-	function BlogController($scope) {
+	function BlogController($scope, $http) {
 			$scope.createPost = createPost;
 
 			function createPost(post){
-					console.log("createPost!");
+					console.log(post);
+					$http.post("/api/blogpost", post);
 			}
 
 	}
