@@ -9,7 +9,7 @@ var PostSchema = mongoose.Schema({
 	title: {type: String, required:true},
 	body: String,
 	tag: String,
-	posted: Date
+	posted: Date 
 });
 
 var PostModel = mongoose.model("PostModel", PostSchema);
@@ -26,8 +26,17 @@ app.post("/api/blogpost", createPost);
 function createPost (req, res){
 	var post = req.body;
 	console.log(post);
-	PostModel.create(post);
-	res.json(post);
+	PostModel
+				.create(post)
+				.then(
+						function (postObj) {
+								res.json(200);
+						},
+						function (error) {
+								res.sendStatus(400)
+						}
+				);
+	
 }
 
 app.listen(3000);
